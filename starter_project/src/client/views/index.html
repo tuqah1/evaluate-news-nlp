@@ -18,22 +18,34 @@
 
         <main>
             <section>
-                <form id="urlForm">
+                <form id="urlForm" onsubmit="return Client.handleSubmit(event)">
                     <input id="name" type="text" name="url" placeholder="Enter URL" required>
-                    <button id="submitButton" type="submit">Submit</button>
+                    <button id="submitButton" type="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">Submit</button>
                 </form>
                 
             </section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="results">
+                    <p id="polarity">Polarity: </p>
+                   <p id="subjectivity">Subjectivity: </p>
+                   <p id="textSnippet">Text Snippet: </p>
+                </div>
             </section>
         </main>
 
         <footer>
             <p>This is a footer</p>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', async() => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

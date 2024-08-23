@@ -1,6 +1,6 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
+    let urls = [
         "Picard",
         "Janeway",
         "Kirk",
@@ -8,11 +8,11 @@ function checkForName(inputText) {
         "Georgiou"
     ];
 
-    if(names.includes(inputText)) {
+    if(urls.includes(inputText)) {
         alert("Welcome, Captain!");
     }
     else {
-        alert("Enter a valid captain name");
+        alert("Enter a valid URL");
     }
 }
 
